@@ -1,0 +1,75 @@
+Git Class Notes 04042020
+
+Git: Version Control, VCS, Distributed, 	brings everybody on the same page.
+track the code
+free and open source
+Time travel, history of the files.
+compare changes in social environment
+
+Repo: where our code/files lives
+
+Create a new project
+	cd ~    			Go to home directory: 	
+	cd Desktop    		Change directory to Desktop: 
+	mkdir recipes   	Create a new folder named recipes: 
+	cd recipes			change folder to recipes: 
+	ls -a 				check the folder : 
+	git init			create a new repo: 
+	vim lemonade.txt	create a new file named lemonade.txt
+	write lemonade on the file
+	:wq 				save the file 
+	git status 			check the status of my project (what happened)
+	git add .			add all files on working directory to index(staging area)
+	git status
+	git commit -m "message"		save the snapshot of my project to my repo
+	cd .. 				one level up
+
+
+
+	Porcelain commands (add, commit, status, log)
+	Plumming commands (low level commands)
+
+
+	Break until 12:15 pm
+
+	vim lemonade.txt	add ingredients
+	changed the lemonade file couple of times and committed all the changes to our repo with:
+	git add .
+	git commit -m "Message"
+
+	git checkout CommitId(SHA1) - We time travelled to previous version of our file.
+
+	you're going to have a message detached head, to correct this
+
+	git checkout master
+
+	git log --pretty=oneline        show previous commits in oneline
+
+	Branch is a reference to a commit. Pointing the commit.
+	
+	git branch                      :you will see which branches you have 
+
+	git branch branchname           :create a new branch
+  
+	git merge branchname            : it merges the branch to current branch
+
+	git branch -a 			: lists all the branch
+
+	Branch means a reference to a commit.
+	Head means a reference to a branch.
+
+Break until 2pm
+
+
+
+
+
+
+
+
+
+
+
+
+
+

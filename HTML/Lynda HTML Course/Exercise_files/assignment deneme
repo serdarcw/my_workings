@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><h1>Clarusway Program</h1></title>
+</head>
+
+<body>
+		<table>
+			<table border="9"
+			<tr>
+    		<td rowspan="3" ><img src="https://data.whicdn.com/images/305761013/original.jpg
+" width="200" heigh="200" alt="Easyday logo"><br>
+			
+
+			</td>
+    		<th colspan="3"><img src="https://clarusway.com/wp-content/uploads/2019/12/cw_sonk%C3%BC%C3%A7%C3%BCk2.png
+" width="200" heigh="200" alt="Clarusway Logo">
+			<h2>AWS&nbsp;&&nbsp;DevOps</h2>
+</td>
+  			</tr>
+ 			 <tr>
+    		<th colspan="2">Schedule</th>
+    		<th colspan="2">Topic</th>
+  			</tr>
+			<tr>
+    			<th>Begin</th>
+    			<th>End</th>
+  			</tr>
+ 			<tr>
+    			<td>Tuesday</td>
+    			<td>07:00 am</td>
+    			<td>10:00 am</td>
+    		<td rowspan="2">
+							<ul>Computer Fundamentals
+
+								<br>
+								<li> Hardware</li>
+								<li>Os</li>
+								<li>Storage</li>
+								<li>Data</li>
+								
+							</ul>
+			</td>
+
+
+  			</tr>
+  				<tr>
+    		<td rowspan="3">Thursday</td>
+    		<td>07:00 am</td>
+    		<td>07:50 am</td>
+  			</tr>
+ 			 <tr>
+    		<td>08:00 am</td>
+    		<td>08:50 am</td>
+    		<td rowspan="2"><mark>HTML</mark><br><del>SCC</del>
+    		</td>
+  			</tr>
+	<tr>
+    		<td>09:00 pm</td>
+    		<td>10:00 pm</td>
+  			</tr>
+ 			 <tr>
+    		<td>Saturday</td>
+    		<td>11:00 am</td>
+    		<td>04:00 pm</td>
+    		<td>Computer Fundamentals</td>
+  			</tr>
+  				<tr>
+    		<td>Sunday</td>
+    		<td>11:00 am</td>
+    		<td>04:00 pm</td>
+    		<td>
+    			<ol><mark>HTML</mark>
+								<li>Formatting Elements</li>
+								<li>List</li>
+								<li>Tables</li>
+								
+
+							</ul>
+
+			</td>
+    			
+
+
+
+
+    		</td>
+  			</tr>
+ 
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+		</table>
+</body>
+</html>

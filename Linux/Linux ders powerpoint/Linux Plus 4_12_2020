@@ -1,0 +1,107 @@
+Linux Plus 4/12/2020
+
+echo $PS1                  #prints current bash prompt structure
+
+export PS1="{\u@\h}"       #changes prompt to only show user name and host name
+
+export PS1="\d \u \W>>"                #Sun Apr 12 ec2-user ~>>
+
+export PS1="{\d \t \u \n \h \W}>>"     #{Sun Apr 12 16:02:30 ec2-user 
+                                       ip-172-31-91-206 ~}>>
+
+export PS1="{\u@\h \# \!}"             #{ec2-user@ip-172-31-91-206 18 556}
+
+export PS1="{\u@\h job count:\j}"      #{ec2-user@ip-172-31-91-206 job count:0}
+
+export PS1="{\u@\h \j}>>"              #{ec2-user@ip-172-31-91-206 0}>>
+
+export PS1="[\u@\h \W]\$"              #[ec2-user@ip-172-31-91-206 ~]$ (Default format)
+
+echo "ehco Hello" > run.sh             #create a file contains echo Hello
+
+chmod +x run.sh                        #make run.sh executible for everyone
+
+./run.sh                               #execute run.sh script
+
+#!/bin/bash						     #shebang should be in the first line always
+
+Excercise 1:
+Create a script named my-first-script.sh
+It should print “This is my first script.”
+Make the script executable.
+Execute the script
+
+Solution:
+echo "My firs script" > my-first-script.sh
+chmod +x my-first-script.sh
+./my-first-script.sh
+
+
+name="Raymond"     #create a variable name and assign "Raymond" as value
+count=10           #create a variable count and assign 10 as value 
+echo $name         #prints name variable value
+echo $count        #prints count variable value
+
+value=5            #create a variable value and assign 5 as value 
+total=$((count+value))  #assigns total of value and count variables to total variable
+echo $value        #prints value variable value
+echo $total        #prints total variable value
+
+echo $((++count))  #increases count value by 1 and prints it
+echo $((count++))  #prints count  and increases the value by 1
+echo $((count))    #prints count value
+let total+=20      #re-assigns total variable value by adding 20
+echo $total        #prints total value
+
+
+Excercise 2:
+Create a script named calculate.sh
+Create a variable named base_value with default value of 5
+Request another number from user and assign it to user_input variable 
+Add user_value to the base_value and assign it to total variable
+Print total to the screen with the message “Total value is”
+Make the script executable.
+Execute the script
+
+Solution:
+vi calculate.sh
+
+#!/bin/bash
+base_value=5
+echo "Enter a value"
+read user_input
+total=$(($base_value+$user_input))
+echo "Total value is $total"
+
+save the file :wq
+
+chmod +x calculate.sh
+./calculate.sh
+
+
+
+
+
+
+Break until 2:00
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

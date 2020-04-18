@@ -1,0 +1,113 @@
+253  cd ~
+  254  ls
+  255  cd Desktop/
+  256  pwd
+  257  mkdir recipes
+  258  cd recipes
+  259  ls
+  260  ls -a
+  261  git init
+  262  ls -a
+  263  cd .git
+  264  ls
+  265  cd ..
+  266  open .git
+  267  vim lemonade.txt
+  268  pwd
+  269  clear
+  270  pwd
+  271  vim lemonade.txt 
+  272  git status
+  273  git add .
+  274  git status
+  275  git commit -m "This is my first lemonade receipe"
+  276  ls -a
+  277  cd .git
+  278  ls
+  279  cd objects/
+  280  ls
+  281  cd 42
+  282  ls
+  283  cd ..
+  284  cd ..
+  285  cd ..
+  286  ls
+  287  clear
+  288  git status
+  289  pwd
+  290  git log
+  291  git cat-file -p 42599f4687363854e8c6bbca0295787b51c7df0f
+  292  git cat-file -p f2497e4eb487b4a7a5e1350b2bca6b10f1d7cef2
+  293  git cat-file -p ef9abc3f77a392d17c31c5460f82555762bc77f0
+  294  ls
+  295  vim lemonade.txt 
+  296  git status
+  297  git add .
+  298  git commit -m "Added ingredients, lemon water"
+  299  git status
+  300  git log
+  301  clear
+  302  git status
+  303  git add .
+  304  git commit -m "Added sugar to ingredients"
+  305  git log
+  306  clear
+  307  git status
+  308  git add .
+  309  git commit -m "Added mint to ingredients"
+  310  git log
+  311  git checkout 043670c8f97ecbb5825c516e7b14a6a9da67c9f
+  312  git checkout 043670c8f97ecbb5825c516e7b14a6a9da67c9f2
+  313  git checkout 42599f4687363854e8c6bbca0295787b51c7df0f
+  314  git checkout a4de758368004a3c98808c2c55d3086674102522
+  315  git checkout master
+  316  git status
+  317  git log --pretty=oneline
+  318  git status
+  319  git branch
+  320  git branch betul
+  321  git branch
+  322  git checkout betul
+  323  git branch
+  324  git status
+  325  git add .
+  326  git commit -m "Betul's recipe"
+  327  git add .
+  328  git commit -m "orange added new recipe"
+  329  touch file{1..10}.txt
+  330  git add .
+  331  git commit -m "Added 10 files"
+  332  git checkout master
+  333  git checkout betul
+  334  git branch rehab
+  335  git checkout rehab
+  336  git status
+  337  git add .
+  338  git commit -m "Rehabs recipe experimentation"
+  339  git checkout master
+  340  git checkout betul
+  341  git checkout rehab
+  342  git checkout betul
+  343  git log
+  344  history
+  345  git status
+  346  git checkout master
+  347  git merge betul
+  348  git status
+  349  git checkout rehab
+  350  git checkout master
+  351  git log
+  352  git branch -a
+  353  git checkout rehab
+  354  git add .
+  355  git commit -m "Made the last change on rehab branch"
+  356  git checkout master
+  357  clear
+  358  touch file{10..15}.txt
+  359  git add .
+  360  git commit -m "final rehabs branch"
+  361  git checkout betul
+  362  git merge rehab
+  363  git status
+  364  git status
+  365  history
