@@ -21,7 +21,16 @@ def equal(a, b, c):
 
 
 
+def equal(a, b, c):
+    numbers = [a, b, c]
+    res = numbers.count(max(numbers, key=numbers.count))
+    return res if res > 1 else 0
 
+
+t=len(set([a,b,c]))
+  return   t!=3 and (4-t) or 0
+
+  
 
 def equal(a, b, c):
 	return {3:0,2:2,1:3}[len({a,b,c})]
