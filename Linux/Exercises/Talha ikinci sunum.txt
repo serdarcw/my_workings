@@ -1,0 +1,109 @@
+    1  cat /etc/passwd
+    2  cat /etc/group
+    3  useradd -m -d /home/ceo -c "the ceo" -s /bin/bash
+    4* useradd -m -d /home/ceo -c "the ceo" -s /bin/rbash ceo
+    5  useradd cfo
+    6  useradd cio
+    7  useradd coo
+    8  useradd manager
+    9  useradd accountant
+   10  useradd engineer
+   11  exit
+   12  echo 'export PS1="\[\033[1;34m\]\u @ a w s \t \d \[\033[1;37m\]\W: \$ \n"' >> .bashrc
+   13  exit
+   14  cat /etc/passwd | tail -8
+   15  history
+   16  passwd cfo
+   17  passwd cio
+   18  passwd cfo
+   19  passwd coo
+   20  passwd manager
+   21  passwd accountant
+   22  passwd engineer
+   23  history
+   24  passwd ceo
+   25  clear
+   26  cat /etc/shadow
+   27  clear
+   28  groupadd executives
+   29  groupadd finance
+   30  groupadd it
+   31  groupadd branch
+   32  groupadd common
+   33  cat /etc/group | tail -5
+   34  gpasswd -a ceo executives
+   35  gpasswd -a cfo executives
+   36  gpasswd -a coo executives
+   37  gpasswd -a cio executives
+   38  gpasswd -a ceo finance
+   39  gpasswd -a cfo finance
+   40  gpasswd -a accountant finance
+   41  gpasswd -a ceo it
+   42  gpasswd -a cio it
+   43  gpasswd -a engineer it
+   44  gpasswd -a ceo branch
+   45  gpasswd -a coo branch
+   46  gpasswd -a manager branch
+   47  gpasswd -a ceo branch
+   48  gpasswd -a ceo common
+   49  gpasswd -a coo common
+   50  gpasswd -a cfo common
+   51  gpasswd -a cio common
+   52  gpasswd -a accountant common
+   53  gpasswd -a manager common
+   54  gpasswd -a engineer common
+   55  cat /etc/group | tail -5
+   56  mkdir /executives_dr /branch_dr /finance_dr /it_dr /common_dr
+   57  ls / | grep _dr
+   58  cd /executives_dr/
+   59  cd /
+   60  cd executives_dr/
+   61  cat >> from_root.txt
+   62  su - cfo
+   63  chmod -R 770 /executives_dr/
+   64  su - ceo
+   65  ls -l / | grep executi
+   66  chown -R ceo /executives_dr/
+   67  chgrp -R executives /executives_dr/
+   68  ls -l / | grep executi
+   69  su - ceo
+   70  ls -l /executives_dr/
+   71  chmod +s /executives_dr/
+   72  su - ceo
+   73  chown -R cfo /finance_dr/
+   74  chown -R cio /it_dr/
+   75  chown -R coo /branch_dr/
+   76  chown -R ceo /common_dr/
+   77  chgrp -R common /common_dr/
+   78  chgrp -R finance /finance_dr/
+   79  chgrp -R branch /branch_dr/
+   80  chgrp -R it /it_dr/
+   81  ls -l / | grep _dr
+   82  chmod -R 2770 /branch_dr/
+   83  chmod -R 2770 /finance_dr/
+   84  chmod -R 2770 /it_dr/
+   85  chmod -R 2777 /common_dr/
+   86  su - manager
+   87  su - coo
+   88  su - ceo
+   89  ln -s /executives_dr/ /home/ceo/
+   90  ln -s /branch_dr/ /home/ceo/
+   91  ln -s /it_dr/ /home/ceo/
+   92  ln -s /finance_dr/ /home/ceo/
+   93  ln -s /common_dr/ /home/ceo/
+   94  ln -s /common_dr/ /home/coo/
+   95  ln -s /executives_dr/ /home/coo/
+   96  ln -s /branch_dr/ /home/coo/
+   97  ln -s /executives_dr/ /home/cfo
+   98  ln -s /finance_dr/ /home/cfo
+   99  ln -s /common_dr/ /home/cfo
+  100  ln -s /common_dr/ /home/cio
+  101  ln -s /it_dr/ /home/cio
+  102  ln -s /executives_dr/ /home/cio
+  103  ln -s /finance_dr/ /home/accountant/
+  104  ln -s /common_dr/ /home/accountant/
+  105  ln -s /common_dr/ /home/engineer/
+  106  ln -s /common_dr/ /home/manager/
+  107  ln -s /branch_dr/ /home/manager/
+  108  ln -s /it_dr/ /home/engineer/
+  109  su - ceo

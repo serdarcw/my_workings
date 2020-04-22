@@ -1,0 +1,210 @@
+# 1 - create an instance on aws
+# 2 - change the TZ to your local zone
+export TZ="US/Pacific"
+date
+exit
+login
+date
+# 3 - do it permanently
+cat >> .bash_profile
+TZ="US/Pacific"
+export TZ
+	Ctrl + D
+exit
+login
+date
+# 4 - check the current users
+cat /etc/passwd
+# 5 - check the passwords
+cat /etc/shadow
+# 6 - check the current groups
+cat /etc/group
+# 7 - customize the bash prompt for aws
+my_prompt=$PS1
+export PS1="\[\033[1;34m\]\u@aws \[\033[1;37m\]\W: \$ "
+	
+# 8 - make the prompt permanent
+cat >> .bashrc 
+export PS1="\[\033[1;34m\]\u@aws \[\033[1;37m\]\W: \$ "
+
+# 9 - switch to the root account with the root environment
+sudo su -
+# 10 - create the user ceo, cfo, cio, coo, accountant, engineer, manager 
+useradd -m -d /home/ceo -c "the ceo" ceo
+useradd cfo
+useradd cio
+# useradd coo # try to create this user by editing the 
+
+# /etc/passwd file 
+# /etc/group
+# chmod 700 coo
+# chown -R coo /home/coo
+# chgrp -R coo /home/coo
+useradd coo		
+useradd accountant
+useradd engineer
+useradd manager
+
+# 11 - check
+# /etc/passwd
+# /etc/group
+# /etc/shadow
+
+
+# 12 - create passwords for each user
+#	passwd ceo ...
+
+# 13 - check the /etc/shadow file
+#	cat /etc/shadow
+#	useradd talha
+#	cat /etc/shadow  # show that there is ! symbols before my name
+#	userdel -r talha # if we dont put r, then it does not delete home dir, you can try with -rf as well
+#	ls /home/
+# 14 - create groups for executives, finance, it, branch, company
+groupadd executives
+groupadd gfinance
+groupadd git
+groupadd gbranch
+groupadd gcommon
+groupadd gtest
+groupdel gtest
+
+# 15 - add c-level executives to executives group
+gpasswd -a ceo executives
+usermod -a -G executives cfo
+usermod -a coo -G executives
+usermod -a cio -G executives
+
+# 16 - add each users to their groups
+gpasswd -a ceo gfinance
+gpasswd -a ceo git
+gpasswd -a ceo gbranch
+gpasswd -a ceo gcommon
+gpasswd -a cfo gfinance
+gpasswd -a cio git
+gpasswd -a coo gbranch
+gpasswd -a coo gcommon
+gpasswd -a cfo gcommon
+gpasswd -a cio gcommon
+gpasswd -a manager gcommon
+gpasswd -a accountant gcommon
+gpasswd -a engineer gcommon
+gpasswd -a engineer git
+gpasswd -a manager gbranch
+gpasswd -a accountant gfinance	
+
+# 17 - create folders for executives, branch, finance, it, common-place on root file
+cd /
+mkdir executives branch finance it common
+
+# 18 - switch to other users to show what kind of priviliges do we have default
+
+# ls /executives
+# su - manager
+# cd /executives  # the user manager can see the content of dir
+	
+# 19 - switch to root and create a folder in executives dir
+# cat > file.txt
+#	root only
+	
+# 20 - switch back to one of the users and read the file
+# su - manager
+# cat /executives/file.txt # how is that possible?
+# 21 - let's check the privilege of the file itself
+#	switch back to root
+#		exit
+#	ls -l /executives/text.txt  # because the file is readable to everybody, but they cannot edit
+#	boom !  # you cannot edit, delete etc. let's try.
+
+# 22 - change privileges setting for directories based on the usergroups
+# chmod 777 /common
+# 23 - switch to a regular user and create dir/files
+#	su - manager
+#	mkdir test; cat > test/file_test.txt
+#		announcement
+#	touch /common/file_manager.txt
+# 24 - switch to another regular user and try to change
+#	su - ceo
+#	vi /common/test/file_test.txt  # you cannot edit. you cannot change privilidge settings.
+
+# 25 - solve the problem.
+#	sudo su -
+chmod 2777 -R /common
+	
+# 26 - switch to the other users and make changes in the files in the common dir.
+# 	su - ceo
+#	vi /common/test/test.txt
+#		as a ceo, i want to see and change any file saved in this folder so that ...
+	
+#	su - accountant
+#	vi /common/test/test.txt
+#		as an accountant, i want to make announcements in this folder so that ...
+	
+# 29 - solve this problem, change the folder owners
+chown -R ceo /executives/
+chown -R coo /branch/
+chown -R cfo /finance/
+chown -R cio /it/
+
+ls -al
+
+chgrp -R executives /executives/
+chgrp -R gbranch /branch/
+chgrp -R gfinance /finance/
+chgrp -R git /it/
+	
+ls -al
+
+# 34 -# THE SOLUTION TO THE PROBLEM WE HAD IN THE WORKSHOP
+# We nee to put 2's before the permissions to turn on the setGID bit, so that 
+# newly created subfiles can inherit the same group as the directory, 
+# and newly created subdirectories can inherit the set GID bit of the parent directory.
+
+chmod 2770 -R /executives
+chmod 2770 -R /finance
+chmod 2770 -R /branch
+chmod 2770 -R /it
+
+# 32 - check if the users and their group folders work properly
+
+# 33 - create link for each users to their group directories
+ln -s /executives/ /home/ceo/
+ln -s /executives/ /home/coo
+ln -s /executives/ /home/cio
+ln -s /executives/ /home/cfo
+ln -s /finance/ /home/cfo
+ln -s /finance/ /home/ceo
+ln -s /finance/ /home/accountant/
+ln -s /branch/ /home/ceo
+ln -s /branch/ /home/coo
+ln -s /branch/ /home/manager/
+ln -s /it /home/ceo/
+ln -s /it /home/cio
+ln -s /it /home/engineer/
+ln -s /common/ /home/ceo/
+ln -s /common/ /home/cfo
+ln -s /common/ /home/coo
+ln -s /common/ /home/cio
+ln -s /common/ /home/manager/
+ln -s /common/ /home/engineer/
+ln -s /common/ /home/accountant/
+
+
+# 35 - go back to aws and create a new instance with a new key_name
+# put it into aws keys directory
+# create .gitignore file to put the files you do not want to commit (if there is)
+
+# 36 - create command to log in your aws instance with user-provided ip address.
+# vi aws.sh
+# #!/bin/bash
+# read -p "Please Enter the IP Address : " IP
+# ssh -i location/xxx.pem ec2-user@$IP
+
+# cat >> .bashrc
+# alias aws="bash aws.sh"
+
+# 37 - show how to log in aws instance
+
+# 38 - change your directory and try to use aws command
+# cd finance; aws # why is it not working? how to solve it?
+# export PATH=$PATH:/home/ceo  # now try again

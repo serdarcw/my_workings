@@ -1,0 +1,41 @@
+group	executives	finance		it		branch		common
+-----	----------	-------		--------	-------		--------
+#	ceo		ceo		ceo		ceo		ceo
+#	cfo		cfo		cio		coo		coo	
+#	cio		accountant	engineer	manager		cfo
+#	coo								cio
+#									accountant
+#									manager
+#									engineer
+
+echo 'export PS1="\[\033[1;34m\]\u @ a w s \t \d \[\033[1;37m\]\W: \$ \n"' >> .bashrc
+
+# 1 - check the passwd and group files
+
+# 2 - add users to your system
+
+# 3 - create passwords for your users
+
+# 4 - create user groups
+
+# 5 - assign your users to their groups
+
+# 6 - check your system files if they are supposed to be
+
+# 7 - create folders for your departments under the root directory
+
+# 8 - change the permissions for the executives folder to 770 and check if it works as we want
+
+# 9 - look at the folder's permissions 
+
+# 10 - change the owner and the group of the folder
+
+# 11 - check the system again if it works properly
+
+# 12 - turn on the setGID bit of this folder, so that newly created subfiles can inherit 
+the same group as the directory, and newly created subdirectories inherit the set GID bit 
+of the parent directory
+
+# 13 - check the system again if it works properly
+
+# 14 - execute the same commands for other group folders
