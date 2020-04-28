@@ -190,19 +190,25 @@ echo $num2
 
 
 Relation Pperators
-Çift parantez yazımlarında içteki operasyonların sağında ve solunda whitespace
+Önemli not1: Çift parantez yazımlarında içteki operasyonların sağında ve solunda whitespace
 bırakmayı unutmayın.
+
+Önemli uyarı2: Çift köşeli parantez kullanımında içerideki variable ların başına $ koylaya gerek yoktur.
+
+
 
 -eq
 is equal to
-if [ "$a" -eq "$b" ]
+if [ $a -eq $b ]
+if [[ a -eq b ]]
 if (("$a" == "$b"))
 Not: İki değerieşitliğini kontrol eder. -eq: equal
 
 
 -ne
 is not equal to
-if [ "$a" -ne "$b" ]
+if [ $a -ne $b ]
+if [[ a -ne b ]]
 if (("$a" != "$b"))
 Not: İki değerin birbirinden farklılığını kontrol eder, -ne:not equal
 
@@ -211,8 +217,9 @@ Not: İki değerin birbirinden farklılığını kontrol eder, -ne:not equal
 -gt
 is greater than
 
-if [ "$a" -gt "$b" ]
-if [ "$a" > "$b" ]
+if [[ a -gt b ]] 
+if [ $a -gt $b ]
+if (( $a > $b ))
 Not: Sağdaki değerin soldaki değerden büyük olup olmadığına bakar
 -gt:: Greater then
 
@@ -222,7 +229,8 @@ Not: Sağdaki değerin soldaki değerden büyük olup olmadığına bakar
 -ge
 is greater than or equal to
 
-if [ "$a" -ge "$b" ]
+if [ $a -ge $b ]
+if [[ a -ge b ]]
 if (( "$a" >= "$b" ))
 Not: Sağdaki değerin soldaki değerden büyük ya da eşit olup olmadığına bakar
 -ge:Greater or equal
@@ -232,7 +240,8 @@ Not: Sağdaki değerin soldaki değerden büyük ya da eşit olup olmadığına 
 -lt
 is less than
 
-if [ "$a" -lt "$b" ]
+if [ $a -lt $b ]
+if [[ a -lt b ]]
 if (( "$a" < "$b" ))
 Not: Sağdaki değerin soldaki değerden küçük olup olmadığına bakar
 -lt:: Less then
@@ -243,7 +252,8 @@ Not: Sağdaki değerin soldaki değerden küçük olup olmadığına bakar
 -le
 is less than or equal to
 
-if [ "$a" -le "$b" ]
+if [ $a -le $b ]
+if [[ a -le b ]]
 if (("$a" <= "$b" ))
 Not: Sağdaki değerin soldaki değerden küçük ya da eşit olup olmadığına bakar
 -le:: Less or equal then
@@ -266,8 +276,7 @@ fi
 
 
 
-Örnek
-
+Örnek: 
 
 #!/bin/bash
 
@@ -306,7 +315,6 @@ fi
 yukarıdaki problemde verilen sayının bir ya da iki basamaklı
 çift ya da tek sayı olduğunu kontrol eder
 
-
 read -p "Please enter your number : " n
 
 if [ $n -lt 10 ];
@@ -320,12 +328,11 @@ then
 else
     if (($n%2==0))
     then
-        echo "This two digit even number"
+        echo "This is one than more digits and even number"
     else
-        echo "This is two digit odd number"
+        echo "This is one than more digits and odd number"
     fi
 fi
-
 
 
 
@@ -363,14 +370,39 @@ Aynı problemi && operatörü kullanarak yapmaya çalışalım:
 echo -n "Enter Number:"
 read num
 
-if [[ ( $num -lt 10 ) && ( $num%2 -eq 0 ) ]]; then
-echo "Even Number"
-else
-echo "Odd Number"
+if [[ $num -lt 10  && $num%2 -eq 0 ]]
+then
+    echo "This number one digit and Even Number"
+elif [[ $num -lt 10  && $num%2 -ne 0 ]]
+then
+    echo "This number one digit and odd Number"
+elif [[ $num -ge 10  && $num%2 -eq 0 ]]
+then
+     echo "This number more digits and Even Number"
+elif [[ $num -ge 10  && $num%2 -ne 0 ]]
+then
+     echo "This number more digits and odd Number"
 fi
 
 
-Not: and operatorü için [ $var1 -a $var2 ] kullanımı da uygulanabilir
+
+yukarıdaki yazımın yanında aşağıdaki yazım şeklide kullanılabilir
+echo -n "Enter Number : "
+read num
+
+if (( $num < 10  && $num%2 == 0 ))
+then
+    echo "This number one digit and Even Number"
+elif (( $num < 10  && $num%2 != 0 ))
+then
+    echo "This number one digit and odd Number"
+elif (( $num >= 10  && $num%2 == 0 ))
+then
+     echo "This number more digits and Even Number"
+elif (( $num >= 10  && $num%2 != 0 ))
+then
+     echo "This number more digits and odd Number"
+fi
 
 
 
@@ -385,33 +417,30 @@ OR operatörü
 read -p "Enter any number : " num1
 read -p "Enter your second number : " num2
 
-if (( ( $num1 < $num2)  || (num1%2==0)))
+if (( $num1 < $num2  || $num1%2== 0 ))
 then
-echo "$num1 is less than $num2 or $num1 is even number"
-elif (( ( $num1 > $num2)  || (num1%2!=0) ))
+    echo "$num1 is less than $num2 or $num1 is even number"
+elif (( $num1 > $num2  || $num1%2 != 0 ))
 then
-echo "$num1 is greater than $num2 or $num1 is odd number"
+    echo "$num1 is greater than $num2 or $num1 is odd number"
 else
-then
 echo "Please try again"
 fi
 
-
-Not: or operatorü için [ $var1 -o $var2 ] kullanımı da uygulanabilir.
+İkinci yazım şekli aşağıdaki gibidir
 
 
 read -p "Enter any number : " num1
 read -p "Enter your second number : " num2
 
-if [ $num1 -lt $num2 -o num1%2 -ne 0 ]
+if [[ $num1 -lt $num2 || $num1%2 -eq 0 ]]
 then
-echo "$num1 is less than $num2 or $num1 is even number"
-elif [ $num1 -gt $num2 -o num1%2 -ne 0 ]
+    echo "$num1 is less than $num2 or $num1 is even number"
+elif [[ $num1 -gt $num2 || $num1%2 -ne 0 ]]
 then
-echo "$num1 is greater than $num2 or $num1 is odd number"
+    echo "$num1 is greater than $num2 or $num1 is odd number"
 else
-then
-echo "Please try again"
+    echo "Please try again"
 fi
 
 
@@ -427,9 +456,12 @@ Soru:
 1. Ask user to enter his/her name
 2. Ask user to enter his/her age
 3. Print user name with one of these messages regarding his/her age:
-	a. age<18 : "Student"
-	b. 18<=age<65 : "Worker"
-	c. age>=65 : "Retired"
+	a. 0<age<1: "Infant"
+    b. 1<=1age<12: "Toddler"
+	c. 12<=age<18 : "Teen"
+	d. 18<=age<65 : "Adult"
+    e. age>=65: "Elderly"
+
 
 
 

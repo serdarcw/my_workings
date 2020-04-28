@@ -1,0 +1,181 @@
+Linux Plus - Recap - 4/26/2020
+
+Excercise - User and Groups
+Create a user named dev_user
+Set  password of dev_user as clarusway 
+Create a group named dev_team 
+Add dev_user user to the group dev_team
+Display groups of dev_user user 
+Remove dev_user from dev_team group
+Display groups of dev_user user 
+Delete dev_team group
+Delete dev_user user with home directory
+
+Solution:
+useradd dev_user
+passwd dev_user
+groupadd dev_team
+gpasswd -a dev_user dev_team
+groups dev_user
+gpasswd -d dev_user dev_team
+groups dev_user
+groupdel dev_team
+userdel -r dev_user
+
+
+Excercise - Package managers
+Update all installed packages
+Check if mariadb is already installed 
+Find available mariadb packages 
+Install mariadb. (Skip confirmations during installation)
+List installed mariadb package
+Uninstall mariadb with all unused dependencies
+List installed mariadb package
+
+Solution:
+sudo yum update
+sudo yum list installed mariadb
+sudo yum list mariadb
+sudo -y yum install mariadb
+sudo yum -y install mariadb
+sudo yum list installed mariadb
+sudo yum autoremove mariadb
+sudo yum list installed mariadb
+
+
+Excercise - Control characters
+a. Search for “clarusway.txt” in the current directory
+b. If it exists display its content
+c. If it does not exist print message “Too early!”
+Create a file named “clarusway.txt” that contains “Congratulations”
+Repeat Step 1
+
+Solution:
+ls clarusway.txt && cat clarusway.txt || echo 'Too early!'
+cat > clarusway.txt
+ls clarusway.txt && cat clarusway.txt || echo 'Too early!'
+
+
+Excercise Bash 1
+Write a script that;
+Asks user to enter two numbers to variables num1 and num2.
+Calculates the total of 2 numbers.
+Prints the total number and applied formula.
+Make the script executable
+Add home directory to the PATH
+Execute the script
+
+Solution:
+1. cat > sum.sh
+#!/bin/bash
+
+read -p "Enter number 1: " num1
+read -p "Enter number 2: " num2
+
+let total=$num1+$num2
+
+echo "$num1 + $num2 = $total"
+
+Ctrl + d
+
+2. export PATH=$PATH:~
+3. sum.sh
+
+
+Excercise Filter
+Create a file named passwords.csv with the following content
+	User,Password
+	finance,xJ2a_Pl1
+	tech,Qc8r7!2P
+	hr,l30o_2mM
+	operation,12345678
+	marketing,qwertyui
+	sales,abcdefgh
+Write a script that accepts user name as argument and prints the password of that user.
+
+Solution:
+1. cat > passwords.csv
+           User,Password
+	finance,xJ2a_Pl1
+	tech,Qc8r7!2P
+	hr,l30o_2mM
+	operation,12345678
+	marketing,qwertyui
+	sales,abcdefgh
+
+2. vi get_pass.sh
+pass=$(cat passwords.csv | grep $1 | cut -d',' -f2)
+echo "Password of the user $1 is $pass"
+
+
+Excercise Bash 3
+Write a script that accepts username as argument
+if argument is empty use current user’s name
+find description of the user and print it
+if description is empty print “No description”
+
+Solution:
+username=""
+
+if [ $1 ]
+then
+        username=$1
+else
+        username=$(whoami)
+fi
+
+description=$(cat /etc/passwd | grep $username | cut -d':' -f5)
+
+if [ "$description" == "" ]
+then
+   echo "No description"
+else
+        echo $description
+fi
+
+
+Excercise Bash 4:
+Write a script that accepts a path as an argument
+If the argument is not empty go to that directory, otherwise stay in the current directory
+Add a number from 1 before all the files that has csv extension.
+
+Solution:
+if [ $1 ];
+then
+   cd $1
+fi
+
+number=1;
+
+for filename in *.csv
+do
+       mv $filename $number-$file
+       let number++
+done
+
+
+Excercise Bash 5
+Write a script that consists of a function that accepts a directory name as an argument and displays the name of the directory and number of files in the directory. 
+Name this function “file_count” and call it in your script for;
+   /etc
+   ~
+   /usr/bin
+
+Solution:
+function file_count(){
+   count=$( ls $1 | wc -l )
+   echo "$1 directory has $count files"
+}
+
+file_count /etc
+file_count ~
+file_count /usr/bin
+
+
+
+
+
+
+
+
+
