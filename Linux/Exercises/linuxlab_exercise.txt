@@ -7,11 +7,11 @@ Example1 (shell operations)(BEGINNER):
 6. Change your shell to bash
 7. Customize & Color your command prompt
 
-1. $SHELL (Amazon Linux 2 AMI has $SHELL variable)
-2. echo $0
-3. which bash
+1. $SHELL (Amazon Linux 2 AMI has $SHELL variable) 
+2. echo $0 (which $SHELL)
+3. which bash 
 4. cat /etc/shells
-5. /bin/sh
+5. /bin/sh (sadece shell in ismi yazılsa da olur)
 6. /bin/bash
 7a. PS1="\[\033[44m\]\u@\h:\w$\[\033[00m\]"
 7b. PS1="\[\033[44m\]\[\033[1;37m\]john@clarusway\[\033[45m\]\[\033[1;37m\](\w)\[\033[44m\]:\[\033[00m\] "
@@ -26,6 +26,13 @@ Example2 (package managers)(BEGINNER):
 7. Uninstall "bastet" (For AWS EC2 "httpd")
 
 1. cat /etc/os-release
+$ hostnamectl
+$ lsb_release -a
+How do I find out My Linux kernel version?
+Type the following uname command:
+$ uname -a
+$ uname -mrs
+
 2. APT (Advanced Package Tool) for debian
    RPM (Red Hat Package Manager) for centos/fedora/redhat
      - YUM (Yellowdog Updater Modified) 
