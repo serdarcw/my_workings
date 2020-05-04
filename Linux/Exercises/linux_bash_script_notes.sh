@@ -625,6 +625,51 @@ done
 
 
 
+WHILE Loops:
+
+
+while loop\'ları da Pthon dakine benzer şekilde sonrasında koyduğumuz şart sağlanana 
+kadar uygulanacaktır.
+
+while için koşul vermeye müteakip do yazılması gerekir ki komutlar işlemeye başlasın
+while loop un içine tek komut yazma zorunluluğu yoktur. Birden fazla komut yazılabilir. 
+Bitimine de done koyulması gerekir. for satırının sonuna ; koyulmasa da olur. Pythondaki
+gibi koyma zorunluluğu burada yoktur
+
+while CONDITION
+do
+    command1
+    command2
+    command3
+done
+
+while [ condition ]; do commands; done
+while control-command; do COMMANDS; done
+
+
+
+Örnek 
+
+i=1
+
+while [ $i -le 10 ]
+do 
+    echo $i
+    ((++i))
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -672,9 +717,103 @@ echo $myblock
 
 
 
-HOW TO BURRY PYTHON COMMAND INSIDE Scriptimizin
+HOW TO BURRY PYTHON COMMAND INSIDE SCRIpT
+
+bash script in içine single line ve multiline commands
+gömebiliriz. Öncelikle single line nasıl yapılır onu görelim;
+
+Single line command:
+Örnek:
+python3 -c 'print("123 is your number")'
 
 
+
+
+
+Multi line command:
+
+Bunun için az önce gördüğümüz blok yapısı kullanılır:
+
+
+PYTHON_CODE
+
+#!/bin/bash
+clear
+
+PYTHON_CODE=$(cat <<END
+#Python code starts here
+num=int(input("please enter your number : "))
+count=0
+if num==2:
+    print(f"{num} is a prime number")
+elif num==1:
+    print(f"{num} isn't a prime number")
+else:
+    for i in range(2,num):
+        if num%i==0:
+            count+=1
+    if count>1:
+        print(f"{num} isn't a prime number")
+    else:
+        print(f"{num} is a prime number")
+END
+)
+
+#you should use this;
+
+python3 -c "$PYTHON_CODE"
+
+#now you can continue with bash script
+
+
+
+
+
+
+Ayrıca bir dosyada olan bir python dosyasını da buradan çalıştırabiliz:
+Şöyle ki:
+
+komut satırına aşağıdaki ifade yazısa yeterli olacaktır.
+
+python3 /Users/ODG/Desktop/True.py
+
+
+
+
+
+
+
+
+
+
+
+
+Float sayılarda aritmetik işlemler
+
+man bc yaparak bc için tüm açıklamalar görülebilir. 
+bc aritmetik işlemlerin uygulanabilirliğini sağlıyor.  
+
+#! /bin/bash
+clear
+sayi1=20.5
+sayi2=5
+
+echo "20.34+5" | bc
+echo "20.5-5" | bc
+echo "20.5*5" | bc
+echo "20.5/5" | bc
+echo "20.5%5" | bc
+#görüldüğü gibi bölme tam olmuyor ama tam olabilmesi için
+#scale özelliği kullanılır
+
+
+echo "scale=2;20.5/5" | bc
+
+echo "scale=2;$sayi1/$sayi2" | bc
+echo "$sayi1+$sayi2" | bc
+
+echo "scale=10; sqrt($sayi2)" | bc -l
+echo "scale=2; $sayi1^3" | bc -l
 
 
 
