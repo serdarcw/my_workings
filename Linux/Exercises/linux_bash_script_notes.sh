@@ -488,13 +488,13 @@ Soru:
 FOR LOOP
 
 Örnek1:
-for loop için aynı pythonda olduğu gibi for için loop için bir aralık 
-vermemiz gerekir. sonrasında aralıkda dolaşacak number değerini for döngüsünün içerisinde 
-dolaştırabilrz
+for loop için aynı pythonda olduğu gibi; for loop için işlemin yürütüleceği 
+bir aralık vermemiz gerekir. sonrasında aralıkda dolaşacak variable(değişken) değerini for döngüsünün içerisinde 
+dolaştırabiliriz
 for için aralık vermeye müteakip do yazılması gerekir ki komutlar işlemeye başlasın
-bunun içine tek komut yazma zorunluluğu yoktur. Birden fazla komut yazılabilir. 
-Bitimine de done koyulması gerekir. for satırının sonuna ; koymayı unutmayın
-
+for loop un içine tek komut yazma zorunluluğu yoktur. Birden fazla komut yazılabilir. 
+Bitimine de done koyulması gerekir. for satırının sonuna ; koyulmasa da olur. Pythondaki
+gibi koyma zorunluluğu burada yoktur
 
 for number in {0..10};
 do
@@ -508,16 +508,16 @@ done
 Not: Burada space ler item ları ayırmak için kullanılır. comma koymaya gerek yoktur
 ama eğer iki veya daha fazla kelime bir arada çıkarılacaksa bu durumda 
 
-names="Serkan Bakır' Mucahit Robert Belkis Fatma"
+names="Serkan Bakır Mucahit Robert Belkis Fatma"
 for name in $names;
 do
 	echo "Welcome $name to Claruswy"
 done
 
-Not:Buraya araya bilgi alma satırı da eklemebilir
+Not:Buraya araya bilgi alma satırı da eklenebilir
 yani echo nun üzerine 
 
-read -p "Please enter your number :  " num 
+read -p "Please enter your number : " num 
 echo "Welcome $name to Clarusway, your number is $num"
 
 
@@ -637,6 +637,42 @@ done
 
 
 
+HERE DOCUMENT/script
+
+Scriptimizin içine block da ekleyebiliriz ve bu block ile multiple line bir 
+ifadeyi bir script olarak da tanıtabiliriz. Bunun için ifadeye >> ile başlanır
+blok ismi verilir, sonrasında blok yazılır ve en sonda block name ile bitirilir
+şöyle ki:
+
+
+#! /bin/bash/ 
+
+cat<<END
+this is a block
+that we a want to
+add inside script
+END
+
+
+Not: Blok isminden sonra yazılacak olanlar bir enter verilerek
+alttn başlayarak yazılmalıdır. en sonda da yine blok ismi 
+
+
+myblock=$(cat<<SERKAN 
+bloğun
+içine istediğimi yazabilirim
+bu konuda herhangi bir 
+kısıtlama yoktur
+ve yazdığım herşey single script haline gelir
+SERKAN
+)
+
+echo $myblock
+
+
+
+
+HOW TO BURRY PYTHON COMMAND INSIDE Scriptimizin
 
 
 
