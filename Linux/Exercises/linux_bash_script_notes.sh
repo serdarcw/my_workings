@@ -336,6 +336,24 @@ fi
 
 
 
+2. Extended integer test
+ 	#!/bin/bash
+ 	
+ 	read -p "Enter a number : " num
+ 	
+ 	if ((num == 10)); then
+ 		echo "Your number equals 10"
+ 	
+ 	elif ((num > 10)); then
+ 		echo "It is greater then 10"
+ 	else
+ 		echo "It is less then 10"
+ 	fi
+ 	
+ 	if (( ((num % 2)) == 0 )); then
+ 		echo " It is even"
+ 	fi
+ 	
 
 
 
@@ -592,7 +610,7 @@ done
 5 ve 5 den önceki sayıların çift ya da tek olmalarına bakalım
 
 
-Burada i in {1..5} de kullanılabilir
+Burada i in {1..5} de kullanılabilir. 
 
 for (( n=1; n<=5; n++ ))
 do
@@ -660,10 +678,72 @@ done
 
 
 
+Not: break komutu da aynı python da olduğu gibi bizi, kuşulun sağlandığı yerde 
+loopun dışına atar.
+
+
+Örnek: 5 e kadar olan sayılar içinde döngü 2ye eşit olduğunda dursun.
+
+#! /bin/bash/
+clear
+
+i=0
+
+while [ $i -lt 5 ]
+do
+  echo "Number: $i"
+  ((i++))
+  if (( $i == 2 )); then
+    break
+  fi
+done
+
+echo 'All Done!'
 
 
 
 
+
+
+Örnek: şimdi 20 ve 20 den küçük sayılar için çift ve 15 den büyük ve eşit
+olanları basmayalım.  
+
+
+#!/bin/bash
+	
+	num=1
+	
+	while [ $num -le 20 ]; do
+	
+		# Don't print evens
+		if (( ((num % 2)) == 0 )); then
+ 			num=$((num + 1))
+ 			continue
+ 		fi
+ 		
+ 		# Jump out of the loop with break
+ 		if ((num >= 15)); then
+ 			break
+ 		fi
+ 		
+		echo $num
+		num=$((num + 1))
+	done
+
+
+UNTIL
+Until de while loop gibi hareket eder.
+ Önündeki koşul sağlanana kadaraşağıda verilen komut çalışacaktır
+
+
+#!/bin/bash
+	
+	num=1
+	
+	until [ $num -gt 10 ]; do
+		echo $num
+		num=$((num + 1))
+	done
 
 
 
@@ -815,5 +895,174 @@ echo "$sayi1+$sayi2" | bc
 echo "scale=10; sqrt($sayi2)" | bc -l
 echo "scale=2; $sayi1^3" | bc -l
 
+
+
+
+
+
+
+
+Functions
+
+Fonksiyon özellikle bash script de komut tekrarını önlemek amacı ile
+ya da programın farklı yerlerinde kullanılacak komut tekrarlarından  
+kaçınmak için kullanılır. Önce fonksiyonu oluşturur sonrasında da aynı 
+komutları tekrar tekrar yazma zahmetinden fonksiyonu çağararak kurtuluruz.
+İki tür fonksiyon yazma şekli vardır.
+
+1)Başına function yazılır, sonra function ismi yazılır 
+() parantezi yazılır ardından { } ler arasına fonksiyon yazıldığında 
+uygulanacak komut yazılır
+
+2) İkinci yolda ise başta fonksiyon yazmadan fonksiyon ismi yazarak başlanır
+ve sorasında, ilk kısımdaki yazım uygulanır
+
+Örnek:
+
+function Merhaba(){
+
+    echo "Merhaba Dsotlar"
+
+
+}
+
+#Bu fonksiyon yazıldıktan sonra fonksiyonu çağırmanız gerekir. Eğer fonksiyonu çağırmaz iseniz
+#fonksiyon cevap vermeyecektir. 
+
+Merhaba
+
+
+2)
+#! /bin/bash/
+clear
+liste(){
+
+    tail -4 /etc/group
+    return
+
+}
+
+liste
+
+
+
+örnek 
+Bir sayının küpünü alan bir fonksiyon yazalım
+
+#! /bin/bash/
+
+i=1
+function third_deg(){
+read -p "Please enter a number : " num
+
+let num$i=num**3
+
+echo "Third degree of you number is $((num$i))"
+
+let i++
+
+}
+
+third_deg 
+
+echo $num1
+
+third_deg
+
+echo $num2
+
+
+
+
+
+
+Local variable
+Scriptler içerisinde global variablelar olduğu gibi local variablelar da 
+mevcuttur. Global variablelar scriptin herhangibiryerinde kullanılabilirlen
+local variablelar local bölgelerde sadece kullanılır. Bu local variableları
+kullanabilmek için önüne local ibaresi yazılmalıdır.
+
+
+Örnek:
+#! /bin/bash/
+ame="Serkan"
+function appl(){
+       local proces="application"
+       echo "Dear $name! Welcome to $proces of SSN!"
+       
+}
+name="Serkan"
+function review(){
+       local proces="further review"
+       echo "Dear $name! Welcome to $proces of SSN!"
+       
+}
+appl
+review
+echo "Name    : $name"
+echo "Process : $proces"
+
+
+
+ 2. Passing Argument
+
+ Fonksiyon içerisinde ardı ardına variable lar tanımlanabilir
+ bunlar için fonksiyon içerisinde 1 den başlamak sureti ile
+ ardışık rakanlar variablelara atanacaktır.
+
+Örnek 
+
+ #! /bin/bash/
+clear
+
+ function mult(){
+        echo "Multiplication $(( $1*$2*$3 ))"
+        
+
+ }
+
+ mult 3 4 5
+
+
+
+
+
+Örnek 2:
+
+#! /bin/bash/
+lear
+function mult(){
+       echo "Multiplication of these is $(( $1*$2*$3 ))"
+       
+}
+read -p "Please of your first number : " num1
+read -p "Please of your first number : " num2
+read -p "Please of your first number : " num3
+mult $num1 $num2 $num3
+
+
+
+Örnek:
+Create a function named retire_age that accepts one argument 
+ask user to input hıs/her year of birth and store it to local bırth_year variable 
+prınt age with a messages
+
+call prınt_age function with 2020
+
+
+
+#! /bin/bash/
+clear
+
+function print_age(){
+        local birth_year
+        read -p "Please enter your year of birth : " birth_year
+        let age=$1-$birth_year
+        echo "Your age is $age. Thank you!"
+
+}
+
+print_age 2020
+echo "$birth_year" 
 
 
