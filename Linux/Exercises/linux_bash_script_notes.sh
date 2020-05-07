@@ -485,33 +485,17 @@ Soru:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 FOR LOOP
 
 Örnek1:
 for loop için aynı pythonda olduğu gibi; for loop için işlemin yürütüleceği 
-bir aralık vermemiz gerekir. sonrasında aralıkda dolaşacak variable(değişken) değerini for döngüsünün içerisinde 
+bir aralık vermemiz gerekir. sonrasında aralıkda dolaşacak variable(değişken) 
+değerini for döngüsünün içerisinde 
 dolaştırabiliriz
-for için aralık vermeye müteakip do yazılması gerekir ki komutlar işlemeye başlasın
-for loop un içine tek komut yazma zorunluluğu yoktur. Birden fazla komut yazılabilir. 
-Bitimine de done koyulması gerekir. for satırının sonuna ; koyulmasa da olur. Pythondaki
+for için aralık vermeye müteakip do yazılması gerekir ki komutlar işlemeye 
+başlasın for loop un içine tek komut yazma zorunluluğu yoktur. Birden fazla
+ komut yazılabilir. Bitimine de done koyulması gerekir. for satırının sonuna ;
+ koyulmasa da olur. Pythondaki
 gibi koyma zorunluluğu burada yoktur
 
 for number in {0..10};
@@ -628,8 +612,10 @@ done
 
 Örnek
 
-#içerikden okuma, path'i tanımlanan herhangi bir dosya içerisindeki verileri okutabiliriz
-#bu durumda aşağıdaki örnek faydalı olacaktır.
+içerikden okuma, 
+pathi tanımlanan herhangi bir dosya:
+ içerisindeki verileri okutabiliriz
+bu durumda aşağıdaki örnek faydalı olacaktır.
 
 i=1
 for var in `cat ./weekday.txt`
@@ -646,8 +632,8 @@ done
 WHILE Loops:
 
 
-while loop\'ları da Pthon dakine benzer şekilde sonrasında koyduğumuz şart sağlanana 
-kadar uygulanacaktır.
+while loop\'ları da Pthon dakine benzer şekilde sonrasında koyduğumuz 
+şart sağlanana kadar uygulanacaktır.
 
 while için koşul vermeye müteakip do yazılması gerekir ki komutlar işlemeye başlasın
 while loop un içine tek komut yazma zorunluluğu yoktur. Birden fazla komut yazılabilir. 
@@ -750,23 +736,13 @@ Until de while loop gibi hareket eder.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 HERE DOCUMENT/script
 
 Scriptimizin içine block da ekleyebiliriz ve bu block ile multiple line bir 
-ifadeyi bir script olarak da tanıtabiliriz. Bunun için ifadeye >> ile başlanır
-blok ismi verilir, sonrasında blok yazılır ve en sonda block name ile bitirilir
+ifadeyi bir script olarak da tanıtabiliriz. Bunun için ifadeye >> 
+ile başlanır
+blok ismi verilir, sonrasında blok yazılır ve en sonda block name 
+ile bitirilir
 şöyle ki:
 
 
@@ -926,8 +902,8 @@ function Merhaba(){
 
 }
 
-#Bu fonksiyon yazıldıktan sonra fonksiyonu çağırmanız gerekir. Eğer fonksiyonu çağırmaz iseniz
-#fonksiyon cevap vermeyecektir. 
+#Bu fonksiyon yazıldıktan sonra fonksiyonu çağırmanız gerekir. 
+#Eğer fonksiyonu çağırmaz iseniz. fonksiyon cevap vermeyecektir. 
 
 Merhaba
 
@@ -1044,7 +1020,8 @@ mult $num1 $num2 $num3
 
 Örnek:
 Create a function named retire_age that accepts one argument 
-ask user to input hıs/her year of birth and store it to local bırth_year variable 
+ask user to input hıs/her year of birth and store it to local 
+bırth_year variable 
 prınt age with a messages
 
 call prınt_age function with 2020
