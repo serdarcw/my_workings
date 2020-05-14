@@ -1,0 +1,99 @@
+Linux Groups
+
+Linux groups are organization units that are used to organize and administer user accounts in Linux. The primary purpose of groups is to define a set of privileges such as reading, writing, or executing permission for a given resource that can be shared among the users within the group.
+
+There are two types of groups in Linux operating systems:
+
+Primary group – When a user creates a file, the file’s group is set to the user’s primary group. Usually, the name of the group is the same as the name of the user. The information about the user’s primary group is stored in the /etc/passwd file.
+
+Secondary or supplementary group - Useful when you want to grant certain file permissions to a set of users who are members of the group. For example, if you add a specific user to the docker group, the user will inherit the access rights from the group, and be able to run docker commands.
+
+Each user can belong to exactly one primary group and zero or more secondary groups.
+
+Only root or users with sudo access can add a user to a group.
+
+
+How to Add an Existing User to a Group
+
+To add an existing user to a secondary group, use the usermod -a -G command followed the name of the group and the user:
+
+
+sudo usermod -a -G groupname username
+
+For example, to add the user linuxize to the sudo group you would run the following command:
+
+sudo usermod -a -G sudo linuxize
+
+Always use the -a (append) option when adding a user to a new group. If you omit the -a option, the user will be removed from any groups not listed after the -G option.
+
+On success, the usermod command does not display any output. It warns you only if the user or group doesn’t exist.
+
+How to Add an Existing User to Multiple Groups in One Command
+If you want to add an existing user to multiple secondary groups in one command, use the usermod command followed by the -G option name of the group separated by , (commas):
+
+sudo usermod -a -G group1,group2 username
+
+How to Remove a User From a Group
+
+To remove a user from a group, use the gpasswd command wit the -d option.
+
+In the following example we are removing the user username from the group groupname:
+
+
+sudo gpasswd -d username groupname
+
+How to Create a Group
+
+To create a new group, use the groupadd command followed by the group name:
+
+sudo groupadd groupname
+
+How to Delete a Group
+To delete an existing group, use the groupdel command followed by the group name:
+
+sudo groupdel groupname
+
+
+
+How to Change a User’s Primary Group
+To change a user primary group, use the usermod command followed by the -g option:
+
+sudo usermod -g groupname username
+In the following example, we are changing the primary group of the user linuxize to developers:
+
+
+sudo usermod -g developers linuxize
+
+
+
+How to Create a New User and Assign Groups in One Command
+
+The following useradd command creates a new user named nathan with primary group users and secondary groups wheel and developers.
+
+sudo useradd -g users -G wheel,developers nathan
+
+
+
+Display User Groups
+
+To display complete user information including all the groups of which a user is a member of, use the id command followed by the username:
+
+
+id username
+If you omit the username, the command will print the information about the currently logged in user. Let’s check the user linuxize:
+
+
+id linuxize
+
+uid=1000(linuxize) gid=100(users) groups=100(users), 10(wheel), 95(storage), 98(power), 990(libvirt), 993(docker), 999(kvm)
+
+From the output above, we see that the primary group of the user is users and it belongs to wheel, storage, libvirt, docker, and kvm supplementary groups.
+
+Use the groups command to display the user’s supplementary groups:
+
+
+groups linuxize
+
+wheel storage power users libvirt docker kvm
+
+If no username is passed to the groups command, it will print the currently logged in user’s groups.

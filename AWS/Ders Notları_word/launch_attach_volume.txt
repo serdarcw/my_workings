@@ -1,0 +1,9 @@
+After create a volume in same AZ with EC2, In EC2 console, you sholud attach it using with volume side. after that open your instance and follow this steps to mount volume in EC2
+    
+    1  lsiblk (Bu komut ile EC2 ya bağlı olan volume'leri görebilirsin)
+    2  df -h (Bu komutu uygularsan, mount edilmemiş volume'un en sağına baktığında dosyasının oluşmadıpını görürsün) /dev/xvdf yazması gerekir
+    3  sudo file -s /dev/xvdf (bu komutu uyguladığında volume'un içinde data olmadığı yazısını görürsün) 
+    6  sudo mkfs -t ext4 /dev/xvdf (Bu komut volume'u formatlar)
+    7  sudo mkdir /newvolume (burada volume yerleştireceğin file oluştururlur)
+    8  sudo mount /dev/xvdf /newvolume (Burada da oluşturulan volume EC2 tarafından newvolume klasörü içerisinde görünür hale getirilir. Artık volume kullanıma hazırdır. 
+Hayırlı olsun...

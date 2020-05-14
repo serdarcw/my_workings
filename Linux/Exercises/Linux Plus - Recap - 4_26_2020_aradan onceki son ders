@@ -15,12 +15,13 @@ Solution:
 useradd dev_user
 passwd dev_user
 groupadd dev_team
-gpasswd -a dev_user dev_team
-groups dev_user
+gpasswd -a dev_user dev_team (sudo usermod -a -G dev_team dev_user; also can be used)
+cat /etc/groups dev_user
 gpasswd -d dev_user dev_team
-groups dev_user
+cat /etc/groups dev_user
 groupdel dev_team
 userdel -r dev_user
+
 
 
 Excercise - Package managers

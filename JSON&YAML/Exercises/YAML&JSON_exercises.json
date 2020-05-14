@@ -1,0 +1,71 @@
+
+YAML:
+cow :
+    - moo
+    - foo
+    - bar
+sheep : baa
+ghost : boo
+
+
+
+JSON Example:
+{
+    "cow": [
+        "moo",
+        "foo",
+        "bar"
+    ],
+    "sheep": "baa",
+    "ghost": "boo"
+}
+
+
+Json Example:
+{
+    "jason": [
+        "rigit",
+        "better for data interchange"
+    ],
+    "yaml": [
+        "slim and flexible",
+        "better for configuration"
+    ],
+    "object": {
+        "key": "value",
+        "array": [
+        {
+            "null_value": null
+        },
+        {
+            "boolean": true
+        },
+        {
+            "integer":1
+        }
+
+    ]
+
+    }
+}
+
+
+YAML Example:
+---
+json:
+ - rigid 
+ - better for data interchange
+yaml :
+ - slim and flexible
+ - better for configuration
+object:
+ key : value
+ array:
+ - null_value:
+ - boolean : true
+ - integer : 1
+
+
+
+
+}

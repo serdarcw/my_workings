@@ -1,0 +1,187 @@
+#What It Is:  JSON, or JavaScript Object Notation, is a minimal, 
+#readable format for structuring data.
+#It is used primarily to transmit data between a server and web application.
+#
+#JSON is a lightweight format for storing and transporting data
+#JSON is often used when data is sent from a server to a web page
+#JSON is "self-describing" and easy to understand
+
+{
+"employees":[
+    {"firstName":"JOHN","lastName":"MC"},
+    {"firstName":"Aaron","lastName":"A"},
+    {"firstName":"James","lastName":"G"},
+    {"firstName":"Oliver","lastName":"A"},
+    {"firstName":"Walter","lastName":"W"},
+]
+}
+
+
+#Syntax Rules
+#
+#Data is in name/value pairs.
+#: (colon) to separate name from value.
+#Data is separated by , (commas) .
+#Curly braces ( { and } ) hold objects.
+#Square brackets ( [and ] )hold arrays.
+
+
+
+#It starts with { (left brace) and ends with } (right brace).
+#This particular example contains 3 keys – country, capital, 
+#and continent.
+#Each key is followed by : (colon) and its respective value. 
+#We separate the key/value pairs by , (comma).
+
+Example:
+
+{ "name" : "John"}
+
+{
+    "Country": "US",
+    "Capital" : "Washington",
+    "Continent": "North America"
+}
+
+
+#Example of Array:
+#
+#It starts with [ (left bracket), ends with ] (right bracket)
+#the items are separated by , comma, similar to the dictionary.
+
+[
+    "Japan",
+    "Austraia",
+    "Canada"
+
+]
+
+
+#- Interview Q&A
+#Q: What is the rule for JSON syntax rules?
+#A: JSON syntax is a set of the JavaScript object notation syntax.
+#
+#Data is in name/value pairs
+#Data is separated by comma
+#Curly brackets hold objects
+#Square bracket holds arrays
+
+
+In JSON, values must be one of the following data types:
+
+a string
+{"name":"John"}
+
+a Number
+{ "age": 30}
+
+an object (JSON object)
+{
+"employee":{ "name":"John", "age":40, "city":"Virginia" }
+}
+
+an array
+{
+"employee":["John","Aaron","James","Oliver","Walter"]
+}
+
+a boolean
+{"Pass":true}
+
+null
+{"middlename":null}
+
+
+
+Avoid ! : JSON values cannot be one of the following data types:
+a function
+a date
+undefined
+
+
+- Interview Q&A
+Q: What are the data types supported by JSON?
+A:Data types supported by JSON includes
+
+Number
+String
+Boolean
+Array
+Object (JSON object)
+Null
+
+
+
+#JSON is built on two structures:
+#
+#A collection of name/value pairs.
+#An ordered list of values. In most languages, 
+#this is realized as an array, vector, list, or sequence.
+
+
+In JSON, they take on these forms:
+
+1.An object is an unordered set of name/value pairs.
+An object begins with `{` left brace and ends with `}` right brace. 
+Each name is followed by `:` colon and the name/value pairs are separated 
+by `,`comma.
+
+{"FirstName":"serdar", "LastName":"serdengecti"}
+
+
+
+2. An array is an ordered collection of values. An array begins with `[` 
+left bracket and ends with `]` right bracket. Values are separated by `,` comma.
+
+"employees":[
+    {"firstName":"John", "lastName":"MC"},
+    {"firstName":"Walter","lastName":"W"}
+]
+
+
+
+A value can be a string in double quotes, or a number, or true or false or null, 
+or an object or an array. These structures can be nested.
+
+
+Interview Q&A
+Q: What is JSON objects?
+A: An object can be defined as an unordered set of name/value pairs.
+An object in JSON starts with {left brace} and finish or ends with {right brace}. 
+Every name is followed by: (colon) and the name/value pairs are parted by, (comma).
+
+Full Lenght Example:
+
+{
+    "json": [
+        "rigit",
+        "better for data interchange"
+    ],
+    "yaml" : [
+        "slim and flexible",
+        "better for configuration"
+    ],
+    "object": {
+        "key":"value",
+        "array": [
+            {
+                "null_value": null
+            },
+            {
+                "boolean":true
+            },
+            {
+            "integer":1
+            }
+        ]
+
+    }
+
+}
+
+
+
+
+
+
+

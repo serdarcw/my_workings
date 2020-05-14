@@ -1,0 +1,72 @@
+#All YAML files can optionally begin 
+#with --- and end with .... This is part of the
+# YAML format and indicates the start and end of a document.
+
+Example:
+
+---
+# A list of courses
+- AWS
+- DevOps
+- Web Developer
+... 
+
+
+#A dictionary is represented in a simple key: value
+# form (the colon must be followed by a space):
+
+# Courses 
+AWS:
+    name: AWS Course
+    job: Developer
+    level: Advance
+
+
+#More complicated data structures are possible, such as lists of dictionaries,
+#dictionaries whose values are lists or a mix of both:
+
+# Employee records
+-  john:
+    name: John Clarusway
+    job: Developer
+    skills:
+      - python
+      - js
+-  james:
+    name: James Garcia
+    job: Developer
+    skills:
+      - fortran
+      - erlang
+
+Indentation of YAML
+#YAML does not include any mandatory spaces. Further,
+# there is no need to be consistent. The valid YAML 
+# indentation is shown below
+
+a:
+   b:
+      - c
+      -  d
+      - e
+f:
+      "ghi"
+
+#There are two styles which we can write our YAML;
+#
+#Block Styles : The block style is the YAML that you've 
+#probably seen before and are somewhat familiar with. It's 
+#the less compact and often indented traditional YAML that
+#makes it easy for us humans to look at the file,
+#1.Less Compact
+#2.Better for Humans
+
+
+-
+  name: John MC
+  hr:   65
+  avg:  0.278
+-
+  name: James Oliver
+  hr:   63
+  avg:  0.288

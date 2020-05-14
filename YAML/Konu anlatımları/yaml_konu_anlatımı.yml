@@ -1,0 +1,335 @@
+#All YAML files can optionally begin 
+#with --- and end with .... This is part of the
+# YAML format and indicates the start and end of a document.
+
+Example:
+
+---
+# A list of courses
+- AWS
+- DevOps
+- Web Developer
+... 
+
+
+#A dictionary is represented in a simple key: value
+# form (the colon must be followed by a space):
+
+# Courses 
+AWS:
+    name: AWS Course
+    job: Developer
+    level: Advance
+
+
+#More complicated data structures are possible, such as lists of dictionaries,
+#dictionaries whose values are lists or a mix of both:
+
+# Employee records
+-  john:
+    name: John Clarusway
+    job: Developer
+    skills:
+      - python
+      - js
+-  james:
+    name: James Garcia
+    job: Developer
+    skills:
+      - fortran
+      - erlang
+
+Indentation of YAML
+#YAML does not include any mandatory spaces. Further,
+# there is no need to be consistent. The valid YAML 
+# indentation is shown below
+
+a:
+   b:
+      - c
+      -  d
+      - e
+f:
+      "ghi"
+
+#There are two styles which we can write our YAML;
+#
+#Block Styles :
+# The block style is the YAML that you've 
+#probably seen before and are somewhat familiar with. It's 
+#the less compact and often indented traditional YAML that
+#makes it easy for us humans to look at the file,
+#1.Less Compact
+#2.Better for Humans
+
+
+-
+  name: John MC
+  hr:   65
+  avg:  0.278
+-
+  name: James Oliver
+  hr:   63
+  avg:  0.288
+
+#Flow Styles : The flow styles are an extension of JSON that 
+#allows for YAML and JSON to sort of work together. It's less 
+#human-readable, but they are sometimes better for the computer 
+#that processing your YAML and flow styles rely on folding lines of content.
+#
+#An Extension of JSON
+
+John MC {hr: 65, avg: 0.278}
+Jmaes Oliver: {
+    hr: 63,
+    avg: 0.288
+  }
+
+
+#1. The flow content of YAML spans multiple lines. The beginning 
+#of flow content begins with " { " or " [ " .
+#2. The block list items include same indentation as the surrounding 
+#block level because `-` is considered as a part of indentation.
+
+--- !clarusway.com/^invoice
+invoice: 20201
+date   : 2-3-2020
+bill-to: &id002
+   given  : Aaron
+   family : A
+   address:
+      lines: |
+            112 darken Dr.
+            Suite #012
+      city    : Royal Oak
+      state   : MI
+      postal  : 121212
+
+
+
+#Separation of Strings
+#Strings are separated using double-quoted string. 
+#In the event that you get away from the newline characters 
+#in a given string, it is totally expelled and converted into space value.
+
+-
+ - Aws
+ - Devops
+ - QA
+-
+ - Javascript
+ - Python
+ - C
+
+
+#Scalars and Tags
+
+#YAML supports some basic data types which can be used with programming languages such as;
+#
+#Scalars − strings or numbers or boolean or null.
+#Sequences − arrays or lists.
+#Mappings − hashes or dictionaries.
+#in YAML;
+#
+#Scalars are written in block format using a literal type which is denoted as ( | ).
+#
+#Scalars are written in folded style ( > ) where each line denotes 
+#a folded space which ends with an empty line or more indented line.
+
+data: |
+   Each of these
+   Newlines
+   Will be broken up
+
+data: >
+   This text is
+   wrapped and will
+   be formed into
+   a single paragraph
+
+
+#   STRINGS
+#A string in YAML
+
+'A singled-quoted string in YAML'
+
+"A double-quoted string in YAML"
+
+
+
+NUMBER 
+
+# an integer
+12
+
+# an octal
+014
+
+# a hexadecimal
+0xC
+
+# afloat
+13.4
+
+# infinity
+.inf
+
+
+
+
+#Others
+#Nulls : Nulls in YAML can be expressed with null or ~.
+#
+#Booleans : Booleans in YAML are expressed with true and false .
+#
+#Dates : YAML uses the ISO-8601 standard to express dates.
+
+2020-03-15T21:59:43.10-05:00
+
+# simple date
+2020-03-15
+
+
+
+
+YAML
+Collections and Structures
+
+Collections
+
+YAML includes block collections that use indentation for scope. 
+Block sequences indicate each entry with a dash and space ( - ).
+
+Mappings use key-value pair representation with the usage of colon and space (: ) .
+
+Example of Sequence:
+
+- John
+- James
+- Aaron
+- Oliver
+- Walter
+
+Example of Mapping:
+hr: 160
+avg: 0.298
+rbi: 153
+
+
+Example of Mapping to Sequence:
+
+AWS-DevOps:
+- Linux
+- AWS
+- Docker
+
+Developer:
+- Html
+- Css
+- js
+
+Example of Sequence of Mappings:
+
+-
+  name: Aaron
+  age: 35
+  job: Developer
+-
+  name: Oliver
+  age: 36
+  job: Developer
+
+Example of Sequence of Sequences:
+
+- [name  , age, job  ]
+- [Aaron , 35  , Developer]
+- [Oliver , 36  , Developer]
+
+Example of Mapping of Mappings:
+
+Aaron: {age: 35,  job: Developer}
+Oliver: {
+   age: 36,
+   job: Developer
+  }
+
+
+#Structures
+#
+#YAML uses three dashes ( --- ) to separate directives from 
+#document content. This also serves to signal the start of 
+#a document if no directives are present. Three dots ( ... ) 
+#indicate the end of a document without starting a new one, 
+#for use in communication channels.
+#
+#Repeated nodes (objects) are first identified by an anchor 
+#(marked with the ampersand - & ) , and are then aliased
+# (referenced with an asterisk * ) thereafter.
+
+person:
+  name: &name "Oliver"
+  occupation: 'programmer'
+  age: 33
+
+id: *name #Oliver
+
+
+
+#A question mark and space ( ? ) indicate a complex mapping key. 
+#Within a block collection, key: value pairs can start immediately
+# following the dash, colon, or question mark.
+
+? - Detroit Tigers
+  - Chicago cubs
+:
+  - 2020-03-09
+
+? [ New York Yankees,
+    Atlanta Braves ]
+: [ 2020-03-09, 2020-02-12,
+    2020-01-14 ]
+
+
+Full Lengh Example:
+
+---
+Time: 2020-03-09 15:01:42 -5
+User: ed
+Warning:
+  This is an error message
+  for the log file
+---
+Time: 2020-03-09 15:02:31 -5
+User: ed
+Warning:
+  A slightly different error
+  message.
+---
+Date: 2020-03-09 15:03:17 -5
+User: ed
+Fatal:
+  Unknown variable "bar"
+Stack:
+  - file: TopClass.py
+    line: 23
+    code: |
+      x = MoreObject("345\n")
+  - file: MoreClass.py
+    line: 58
+    code: |-
+      foo = bar
+
+person:
+  name : "serkan"
+  occupation : 'programmer'
+  age : 23
+  gpa . 3.5
+  fav_nu: 1e+10
+  male : true
+  birthday : 1994-02-06 14:33:22
+  flaws:null
+  hobbies:
+    - hiking
+    - movies
+    - riding bike
+  movies: ["FAce off"]
