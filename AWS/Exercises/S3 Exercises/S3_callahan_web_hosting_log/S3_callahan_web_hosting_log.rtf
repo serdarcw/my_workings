@@ -1,0 +1,142 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red22\green21\blue22;\red22\green21\blue22;}
+{\*\expandedcolortbl;;\cssrgb\c11373\c10980\c11373;\cssrgb\c11373\c10980\c11373\c3922;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 #\'a005-29-2020\cb1 \
+\cb3 #\'a0AWS\'a0Lab\'a0Session\'a0-\'a0Callahan\cb1 \
+\cb3 #\'a0Simple\'a0Storage\'a0Service\'a0(S3)\'a0\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 #\'a0open\'a0s3\'a0service\'a0from\'a0aws\'a0management\'a0console\cb1 \
+\cb3 #\'a0create\'a0a\'a0bucket\'a0-\'a0clarusway-storage\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0explain\'a0naming\'a0convention,\'a0unique,\'a0global\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0explain\'a0why\'a0we\'a0choose\'a0region,\'a0redundancy,\'a0availability\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Versioning\'a0\'a0\'a0\'a0Disabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Server\'a0access\'a0logging\'a0Disabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Tagging\'a0\'a0\'a00\'a0Tags\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Object-level\'a0logging\'a0\'a0Disabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Default\'a0encryption\'a0\'a0\'a0\'a0None\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0CloudWatch\'a0request\'a0metrics\'a0\'a0\'a0\'a0Disabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Object\'a0lock\'a0\'a0\'a0Disabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Block\'a0all\'a0public\'a0access\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 #\'a0upload\'a0a\'a0file\'a0to\'a0the\'a0bucket\'a0with\'a0default\'a0values\cb1 \
+\cb3 #\'a0show\'a0the\'a0file\'a0details\cb1 \
+\cb3 #\'a0open\'a0the\'a0file\'a0url,\'a0not\'a0shown\'a0(not\'a0accessible)\'a0in\'a0the\'a0browser\cb1 \
+\cb3 #\'a0try\'a0to\'a0make\'a0the\'a0object\'a0public,\'a0face\'a0"Error\'a0Access\'a0denied"\cb1 \
+\cb3 #\'a0open\'a0the\'a0bucket\'a0permissions,\'a0change\'a0it\'a0public\cb1 \
+\cb3 #\'a0select\'a0the\'a0file\'a0uploaded\'a0and\'a0make\'a0it\'a0public\'a0also\cb1 \
+\cb3 #\'a0open\'a0the\'a0file\'a0url\'a0in\'a0the\'a0browser,\'a0show\'a0it\'a0is\'a0accessible\'a0now\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 #\'a0create\'a0a\'a0folder\'a0named\'a0it\'a0images,\'a0explain\'a0why\'a0a\'a0folder\'a0is\'a0also\'a0called\'a0as\'a0prefix\'a0in\'a0S3\cb1 \
+\cb3 #\'a0upload\'a0a\'a0second\'a0file\'a0under\'a0images\'a0folder\'a0with\'a0drag\'a0and\'a0drop\cb1 \
+\cb3 #\'a0open\'a0the\'a0second\'a0file\'a0url,\'a0not\'a0shown\'a0(not\'a0accessible)\'a0in\'a0the\'a0browser\cb1 \
+\cb3 #\'a0select\'a0the\'a0second\'a0file\'a0uploaded\'a0and\'a0make\'a0it\'a0public\'a0also\cb1 \
+\cb3 #\'a0open\'a0the\'a0second\'a0file\'a0url\'a0in\'a0the\'a0browser,\'a0show\'a0it\'a0is\'a0accessible\'a0now\cb1 \
+\cb3 #\'a0upload\'a0a\'a0third\'a0file\'a0under\'a0clarusway-storage\'a0bucket\cb1 \
+\cb3 #\'a0show\'a0how\'a0to\'a0move\'a0the\'a0third\'a0file\'a0under\'a0images\'a0folder\cb1 \
+\cb3 #\'a0show\'a0how\'a0to\'a0delete\'a0the\'a0second\'a0file\cb1 \
+\cb3 #\'a0show\'a0how\'a0to\'a0rename\'a0the\'a0third\'a0file\cb1 \
+\cb3 #\'a0show\'a0how\'a0to\'a0delete\'a0the\'a0images\'a0folder,\'a0show\'a0that\'a0it\'a0is\'a0deleted\'a0even\'a0if\'a0there\'a0are\'a0objects\'a0in\'a0folder.\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb1 \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 #\'a0show\'a0the\'a0storage\'a0classes,\'a0S3\'a0Standard,\'a0Standard\'a0IA,\'a0Glacier:\'a03\'a0AZs,\'a0durability\'a011/9\'a0\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 #\'a0create\'a0a\'a0new\'a0bucket\'a0for\'a0website\'a0logging\'a0-\'a0log.pet.clarusway.call\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Versioning\'a0\'a0\'a0\'a0Disabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Server\'a0access\'a0logging\'a0Disabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Tagging\'a0\'a0\'a00\'a0Tags\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Object-level\'a0logging\'a0\'a0Disabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Default\'a0encryption\'a0\'a0\'a0\'a0None\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0CloudWatch\'a0request\'a0metrics\'a0\'a0\'a0\'a0Disabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Object\'a0lock\'a0\'a0\'a0Disabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Allow\'a0all\'a0public\'a0access\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 ############\'a0Static\'a0Website\'a0Hosting\'a0#############\cb1 \
+\cb3 #\'a0static\'a0Website\'a0Hosting\cb1 \
+\cb3 #\'a0create\'a0a\'a0new\'a0bucket\'a0for\'a0static\'a0website\'a0-\'a0pet.clarusway.call\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Versioning\'a0\'a0\'a0\'a0Enabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Server\'a0access\'a0logging\'a0Enabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Tagging\'a0\'a0\'a00\'a0Tags\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Object-level\'a0logging\'a0\'a0Disabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Default\'a0encryption\'a0\'a0\'a0\'a0None\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0CloudWatch\'a0request\'a0metrics\'a0\'a0\'a0\'a0Disabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Object\'a0lock\'a0\'a0\'a0Disabled\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0Allow\'a0all\'a0public\'a0access\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 #\'a0show\'a0static\'a0website\'a0hosting\'a0settings\'a0from\'a0properties\'a0of\'a0new\'a0bucket\cb1 \
+\cb3 \'a0\'a0\'a0\'a0#\'a0enter\'a0index.html\'a0as\'a0default\'a0file\cb1 \
+\cb3 #\'a0set\'a0the\'a0static\'a0website\'a0bucket\'a0policy\'a0as\'a0shown\'a0below\cb1 \
+\cb3 \{\cb1 \
+\cb3 \'a0\'a0\'a0\'a0"Version":\'a0"2012-10-17",\cb1 \
+\cb3 \'a0\'a0\'a0\'a0"Statement":\'a0[\cb1 \
+\cb3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\{\cb1 \
+\cb3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0"Sid":\'a0"PublicReadGetObject",\cb1 \
+\cb3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0"Effect":\'a0"Allow",\cb1 \
+\cb3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0"Principal":\'a0"*",\cb1 \
+\cb3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0"Action":\'a0"s3:GetObject",\cb1 \
+\cb3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0"Resource":\'a0"arn:aws:s3:::bucket-name/*"\cb1 \
+\cb3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\}\cb1 \
+\cb3 \'a0\'a0\'a0\'a0]\cb1 \
+\cb3 \}\cb1 \
+\cb3 #\'a0upload\'a0index.html\'a0and\'a0image\'a0to\'a0the\'a0bucket\cb1 \
+\cb3 <html>\cb1 \
+\cb3 \'a0\'a0\'a0\'a0<head>\cb1 \
+\cb3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0<title>\'a0Cute\'a0Cat\'a0</title>\cb1 \
+\cb3 \'a0\'a0\'a0\'a0</head>\cb1 \
+\cb3 \'a0\'a0\'a0\'a0<body>\cb1 \
+\cb3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0<center><h1>\'a0My\'a0Cute\'a0Cat\'a0</h1><center>\cb1 \
+\cb3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0<center><img\'a0src="cat.jpg"\'a0alt="Cute\'a0Cat"</center>\cb1 \
+\cb3 \'a0\'a0\'a0\'a0</body>\cb1 \
+\cb3 </html>\cb1 \
+\cb3 #\'a0open\'a0static\'a0website\'a0url\'a0in\'a0browser\'a0and\'a0show\'a0its\'a0working\cb1 \
+\cb3 #\'a0create\'a0folder\'a0under\'a0the\'a0bucket\'a0-\'a0kitten\cb1 \
+\cb3 #\'a0move\'a0the\'a0index.html\'a0and\'a0image\'a0into\'a0the\'a0folder\cb1 \
+\cb3 #\'a0open\'a0static\'a0website\'a0url\'a0in\'a0browser\'a0again,\'a0show\'a0it's\'a0not\'a0working\'a0at\'a0with\'a0default\'a0url,\'a0facing\'a0with\'a0"404\'a0Not\'a0Found"\cb1 \
+\cb3 #\'a0add\'a0path\'a0kitten\'a0tho\'a0the\'a0url\'a0to\'a0show\'a0the\'a0content\'a0without\'a0file\'a0name\cb1 \
+\cb3 #\'a0rename\'a0the\'a0index.html\'a0under\'a0kitten\'a0folder\'a0as\'a0cutest.html\cb1 \
+\cb3 #\'a0open\'a0static\'a0website\'a0url\'a0in\'a0browser\'a0again\'a0with\'a0path\'a0kitten\'a0added,\'a0show\'a0it's\'a0not\'a0working\'a0as\'a0with\'a0default\'a0index.html,\'a0facing\'a0with\'a0"404\'a0Not\'a0Found"\cb1 \
+\cb3 #\'a0add\'a0exact\'a0file\'a0name\'a0cutest.html\'a0tho\'a0the\'a0url\'a0to\'a0show\'a0the\'a0content\'a0\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 #############\'a0Versioning\'a0#############\'a0\cb1 \
+\cb3 #\'a0show\'a0versioning\'a0of\'a0the\'a0files\'a0right\'a0under\'a0the\'a0bucket\'a0pet.clarusway.call\cb1 \
+\cb3 #\'a0delete\'a0"delete\'a0markers"\'a0of\'a0the\'a0index.html\'a0and\'a0cat.jpg,\'a0and\'a0show\'a0that\'a0they\'a0are\'a0available\'a0again.\cb1 \
+\cb3 #\'a0upload\'a0a\'a0new\'a0version\'a0of\'a0the\'a0index.html\cb1 \
+\cb3 #\'a0open\'a0static\'a0website\'a0url\'a0in\'a0browser\'a0again,\'a0observe\'a0that\'a0it\'a0is\'a0showing\'a0the\'a0new\'a0content\'a0\cb1 \
+\cb3 #\'a0upload\'a0a\'a0new\'a0version\'a0of\'a0the\'a0cat.jpg\'a0under\'a0kitten\'a0folder\cb1 \
+\cb3 #\'a0open\'a0static\'a0website\'a0url\'a0with\'a0kitten\'a0path\'a0in\'a0browser\'a0again,\'a0observe\'a0that\'a0it\'a0is\'a0showing\'a0the\'a0new\'a0content\'a0\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 #\'a0show\'a0versioning\'a0of\'a0the\'a0index.html,\'a0and\'a0delete\'a0the\'a0latest\'a0version.\cb1 \
+\cb3 #\'a0open\'a0static\'a0website\'a0url\'a0in\'a0browser\'a0again,\'a0observe\'a0that\'a0it\'a0is\'a0showing\'a0the\'a0old\'a0content\'a0\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 #\'a0open\'a0website\'a0log\'a0bucket\'a0and\'a0show\'a0logging\cb1 \
+\cb3 #\'a0open\'a0lifecycle\'a0console\'a0of\'a0the\'a0log\'a0bucket\'a0from\'a0the\'a0management\'a0tab\'a0and\'a0add\'a0lifecycle\'a0rule\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 #\'a0delete\'a0logging\'a0bucket\
+}
