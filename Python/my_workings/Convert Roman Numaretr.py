@@ -20,6 +20,7 @@ Yazım Kuralları
 4) Bir rakamın merkezi, en büyük olan simgedir. Onun soluna veya sağına kendisinden küçük rakamlar yazılabilir.
 Örnek: CDLII (452)
 5) En büyük sayı 3888’dir. (MMMDCCCLXXXVIII)
+
 c1:def convert_to_roman(num):
 	roman = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
 	sayi = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
@@ -29,6 +30,10 @@ c1:def convert_to_roman(num):
 			num -= d
 			romanvalue += roman[i]
 	return romanvalue
+
+
+
+
 c2:def convert_to_roman(num):
     d = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'),
          (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'),
@@ -38,6 +43,9 @@ c2:def convert_to_roman(num):
         res += numeral * (num//value)
         num %= value
     return res
+
+
+
 c3:def convert_to_roman(num):
 	decimal = [1000,900,500,400,100,90,50,40,10,9,5,4,1]
 	numeral = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I']
@@ -48,6 +56,10 @@ c3:def convert_to_roman(num):
 			res += numeral[i] * val
 			num -= decimal[i] * val
 	return res
+
+
+
+
 c4:def convert_to_roman(n):
 	rom = ['M','D','C','L','X','V','I']
 	ara = [1000,500,100,50,10,5,1]
@@ -62,6 +74,8 @@ c4:def convert_to_roman(n):
 				r=r[:-1]+rom[ara.index(i)]+rom[ara.index(i)-2]
 			n%=i
 	return r
+
+
 
 num=2308
 
